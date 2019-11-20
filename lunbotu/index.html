@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				overflow-x:hidden ;
+			}
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			[v-cloak]{
+				display: none;
+			}
+			.l{
+				height: 60px;
+				width: 40px;
+				background: rgba(0, 0, 0, 0.5);
+				color: #FFFFFF;
+				font-size: 25px;
+				font-weight: bold;
+				position: absolute;
+				left: 0;
+				top: 50%;
+				margin-top: -30px;
+				text-align: center;
+				line-height: 60px;
+				
+			}
+			.r{
+				height: 60px;
+				width: 40px;
+				background: rgba(0, 0, 0, 0.5);
+				color: #FFFFFF;
+				font-size: 25px;
+				font-weight: bold;
+				position: absolute;
+				right: 0;
+				top: 50%;
+				margin-top: -30px;
+				text-align: center;
+				line-height: 60px;
+			}
+			.no1-leave,
+			.no1-enter-to{
+				opacity: 1;
+				left: 0;
+			}
+			.no1-leave-active,
+			.no1-enter-active{
+				transition: all .5s;
+			}
+			.no1-leave-to {
+				opacity: 0;
+				left: 500px;
+			}
+			
+			.no1-enter {
+				opacity: 0;
+				left: -500px;
+			}
+			.no2-leave,.no2-enter-to{
+				opacity: 1;
+				left: 0;
+			}
+			.no2-leave-to{
+				opacity: 0;
+				left: -500px;
+			}
+			.no2-enter{
+				opacity: 0;
+				left: 500px;
+			}
+			.no2-leave-active,
+			.no2-enter-active {
+				transition: all .3s;
+			}
+			.co{
+				background: red !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box" v-cloak="">
+			<div style="width: 500px; margin: 0 auto;">
+				<no1></no1>
+			</div>
+		</div>
+		
+		<template id="no1">
+			<div>
+				<div style="position: relative;" v-imgs>
+					<transtion :name="tran_name" v-for="(i $index) in arr">
+						<img :src="i" style="position: absolute;width: 100%;" v-show="type == $index"/>
+					</transtion>
+					<div class="l" @click="no2">
+						<
+					</div>
+					<div class="r" @click="no1">
+						>
+					</div>
+					<div style="position: absolute; bottom: 30px;left: 50%;" ref="bottom_d">
+						<span v-for="(i $index) in arr" style="display: inline-block; padding: 5px; background: #FFFFFF; border-radius: 50%; margin: 0 5px;" @click="no3($index)" :class="$index==type?'co':''"></span>
+					</div>
+				</div>
+			</div>
+		</template>
+		
+	</body>
+	<script src="vue.js"></script>
+	<script type="text/javascript">
+		Vue.directive('imgs',{
+			inderted(a,b){
+				var img = a.gitElementsByTagName('img')
+				img[0].onload = function(){
+					a.style.height = img[0].offsetHeight + 'px'
+					for(var i = 0; i < img.length; i++){
+						img[i].style.height = img[0].offsetHeight + 'px'
+					}
+				}
+			}
+		})
+		
+		Vue.component('no1',{
+			template:'#no1',
+			mounted(){
+				this.$refs.bottom_d.style.marginLeft = '-'+this.$refs.bottom_d.offsetWidth/2+'px'
+			},
+			methods:{
+				no3(index){
+					if(this.type<index){
+						this.tran_name = 'no1'
+					}else{
+						this.tran_name = 'no2'
+					}
+					this.type = index
+				},
+				no2(){
+					this.tran_name = 'no2'
+					if(this.toggle){
+						this.toggle = false
+						this.type--
+						if(this.type<= -1){
+							this.type = this.length-1
+						}
+						setTimeout(()={
+							this.toggle = true
+						},400)
+					}
+				},
+				no1(){
+					this.tran_name = 'no1'
+					if(this.toggle){
+						this.toggle = false
+						this.type++
+						if(this.type>=this.arr.length){
+							this.type = 0
+						}
+						setTimeout(()=>{
+							this.toggle = true
+						},400);
+					}
+				}
+			},
+			data(){
+				return{
+					tran_name:'no1',
+					arr[
+						'7.jpg',
+						'8.jpg',
+						'9.jpg'
+					],
+					type:0,
+					toggle:true
+				}
+			}
+		})
+		
+		 
+		
+		
+		
+		new Vue({
+			el:"#box"
+		})
+		
+		
+	</script>
+</html>
