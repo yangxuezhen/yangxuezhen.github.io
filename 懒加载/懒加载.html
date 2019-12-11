@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+    <title>滚动加载更多</title>
+   <style type="text/css">
+        body,div{
+            margin:0;
+            padding:0;
+        }
+        body{
+           width: 100%;
+            background-color: #ccc;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            border: 1px solid gold;
+        }
+        .load_div{
+            width: 400px;
+            height: 300px;
+            border:1px solid red;
+        }
+        .load_div2{
+            width: 400px;
+            height: 300px;
+            border:1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <div class="load_div"></div>
+    <div class="load_div"></div>
+    <div class="load_div"></div>
+    <div class="load_div"></div>
+    <div class="load_div"></div>
+    <div class="load_div"></div>
+    <div class="load_div"></div>
+    <div class="load_div"></div>
+    <div class="load_div"></div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+     var totalHeight = $(document).height();
+     var seeHeight = $(window).height();
+     var scrollTop = $(window).scrollTop();
+     $(window).scroll(function(){
+     scrollTop = $(window).scrollTop();
+        totalHeight = $(document).height();
+        if(scrollTop+seeHeight+50>totalHeight){
+            var htmlText = '<div class="load_div2"></div><div class="load_div2"></div><div class="load_div2"></div>';
+            $('body').append(htmlText);
+        }
+    })
+   
+</script>
+</html>
