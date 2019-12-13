@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="https://www.jq22.com/jquery/jquery-3.3.1.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+        button{
+            width: 40px;
+            height: 40px;
+            background: slategray;
+            text-align: center;
+            line-height: 40px;
+        }
+        div{
+            transition: opacity 2s;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <lee :kpl='arr' style="float: left; width: 370px; background-color: silver;margin-right: 30px;"></lee>
+        
+
+    </div>
+    <template id="lee">
+        <div>
+            <div>
+                <div @mouseenter="out()" @mouseleave="enter_in()">
+                    <li v-for="(item,index) in arr" :key="item" v-show="num==index">
+                        <img :src="item" />
+                    </li>
+                    <!--左右按钮-->
+                    <div class="enter" :class="{active:type}">
+                        <button @click="left()" style="float: left">&lt;</button>
+                        <button @click="right()" style="float: right">&gt;</button>
+                    </div>
+                </div>
+            </div>
+    </template>
+</body>
+<script src="vue.js"></script>
+<script>
+    Vue.component('lee', {
+        template: '#lee',
+        props: ['kpl'],
+        data() {
+            return {
+                num: 0,
+                ind: 1,
+                type: false,
+                dir: null, //方向
+                arr: this.kpl
+            }
+        },
+        methods: {
+            right() {
+                this.dir = 'right'
+                this.ind++;
+                if (this.num >= this.arr.length - 1) {
+                    return this.num = 0;
+                } else {
+                    return this.num++;
+                }
+            },
+            left() {
+                this.dir = 'left'
+                this.ind++;
+                console.log(this.num);
+                if (this.num <= 0) {
+                    return this.num = 4;
+                } else {
+                    return this.num--;
+                }
+            },
+            out() {
+                this.type = true;
+            },
+            enter_in() {
+                this.type = false;
+            }
+        }
+    })
+    new Vue({
+        el: '#box',
+        index: 0,
+        data: {
+            arr: [
+                'http://www.jq22.com/demo/jQuery-lbt20160227/images/01.jpg',
+                'http://www.jq22.com/demo/jQuery-lbt20160227/images/02.jpg',
+                'http://www.jq22.com/demo/jQuery-lbt20160227/images/03.jpg',
+                'http://www.jq22.com/demo/jQuery-lbt20160227/images/04.jpg',
+                'http://www.jq22.com/demo/jQuery-lbt20160227/images/05.jpg',
+                'http://www.jq22.com/demo/jQuery-lbt20160227/images/06.jpg'
+            ]
+        }
+    })
+
+
+</script>
+
+</html>
