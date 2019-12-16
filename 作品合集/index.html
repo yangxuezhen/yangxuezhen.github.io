@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none ;
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        ul {
+            position: absolute;
+            top: 40px;
+        }
+
+        ul li {
+            float: left;
+            width: 100px;
+            height: 46px;
+            text-align: center;
+            line-height: 46px;
+            margin: 0 3px;
+        }
+
+        ul li:hover {
+            color: #e09a0e !important;
+            border-bottom: 1px solid #e09a0e;
+        }
+
+        ul li:nth-of-type(1) {
+            color: #e09a0e !important;
+            border-bottom: 1px solid #e09a0e;
+        }
+
+        .bot {
+            position: relative;
+            text-align: center;
+            width: 372px;
+            height: 314px;
+            overflow: hidden;
+            margin: 0 auto;
+            margin: 5px;
+        }
+
+        .bot img {
+            width: 100%;
+            height: 100%;
+            transition: .5s;
+        }
+
+        .bot:hover img {
+            transition: .5s;
+            width: 120%;
+            height: 120%;
+            margin-left: -10%;
+            margin-top: -10%;
+        }
+        .one:nth-of-type(1){
+            width: 111px;
+        }
+        .one{
+            float: left;
+            width: 350px;
+            height: 126px;
+            padding: 10px 10px;
+            margin-top: 50px;
+        }
+        .one h3 img{
+            height: 30px;
+        }
+        .one h3{
+            font-size: 16px;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .one p{
+            font-size: 14px;
+            color: #bababa;
+            line-height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div style="height: 74px;padding: 0 40px;">
+            <div style="padding: 10px 0;position: fixed;top: 20px;z-index: 20;">
+                <img style="width: 42px;height: 52px;"
+                    src="https://ccdn.goodq.top/caches/85e9413af2fb7f593b2c9e26f027fb64/aHR0cDovLzVkNmNhYzk1OGU3MWYudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOS8wOC82NjllMGE5YzEyMTQ4MjhhNzBlYWI5ZTJiMzk1OTIwMC5wbmc_p_p100_p_3D.png"
+                    alt="">
+            </div>
+            <div style="float: right;position: fixed;top: 20px;right: 40px;">
+                <span style="font-size: 50px;font-weight: 300;"> = </span>
+            </div>
+        </div>
+        <div style="max-width: 1280px;width: 80%; height: 87px; margin:50px auto;padding: 0 40px; position: relative;">
+            <div style="min-width:376px; float: left;">
+                <div style="width: 200px; font-size: 28px; color: #333; margin: 0 0 10px;">
+                    作品合集
+                </div>
+                <div style="width: 200px;font-size: 14px; color: #999;">
+                    这里展示了此网站所有作品，
+                    更多信息请点击查看更多按钮。
+                </div>
+            </div>
+            <div style="float: right;margin-right: 40px; width: 500px; height: 50px;">
+                <ul>
+                    <li>所有</li>
+                    <li>服装</li>
+                    <li>家具</li>
+                    <li>商标</li>
+                    <li>印刷</li>
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix" style="max-width: 80%;width: 80%;margin: 0 auto; ">
+            <lee v-for='i in arr' :max_arr='i'></lee>
+        </div>
+        <div style="width: 80%;height: 70px; margin: 0 auto;">
+            <a href="#">
+                <div style="max-width: 194px;height: 30px;line-height: 30px; margin: 0 auto; border: 1px solid #e8bc60;color: #bf943c;padding: 5px;text-align: center; font-size: 18px;">显示更多
+                </div>
+            </a>
+        </div>
+        <div style="padding: 0 40px; height: 226px;margin: 0 auto;background: rgba(224,224,224,0.3) none repeat center top;" >
+           <div style="margin: 0 auto;width: 1242px;">
+            <div class="one">
+                <h3>
+                 业务介绍
+                </h3>
+                <p>
+                 服装 / 家居 / 商标 / 印刷
+                </p>
+            </div>
+            <div class="one">
+             <h3>
+                 关于我们
+             </h3>
+             <p>
+                 我们倾力打造的一个从网站建设，网站运营管理到网站推广的自动化免费建站平台。
+             </p>
+             </div>
+             <div class="one">
+                 <h3>
+                     相关问题
+                     
+                 </h3>
+                 <p>
+                     我们倾力打造的一个从网站建设，网站运营管理到网站推广的自动化免费建站平台。
+                 </p>
+             </div>
+             <div class="one">
+                 <h3>
+                     <img src="https://ccdn.goodq.top/caches/85e9413af2fb7f593b2c9e26f027fb64/aHR0cDovLzVkNmNhYzk1OGU3MWYudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOS8wOC82NjllMGE5YzEyMTQ4MjhhNzBlYWI5ZTJiMzk1OTIwMC5wbmc_p_p100_p_3D.png" alt="">
+                 </h3>
+                 <p>
+                     地址：苏州市金鸡湖大道00号©版权所有2019模板网站 | 沪ICP备0000000000-号
+                 </p>
+             </div>
+           </div>
+        </div>
+
+    </div>
+    <template id="no1">
+        <div style="min-width:33%;height: 420px;float: left;">
+            <div class="bot">
+                <img :src="json.img" alt="">
+            </div>
+            <div>
+                <h2 style="font-size: 22px; color: #333;font-family: 微軟正黑體;">
+                    {{json.t1}}
+                </h2>
+                <p style="font-size: 14px;color: #999;font-family: 微軟正黑體;">
+                    {{json.t2}}
+                </p>
+            </div>
+        </div>
+    </template>
+
+</body>
+<script src="../vue.js"></script>
+<script src="index.js"></script>
+
+</html>
