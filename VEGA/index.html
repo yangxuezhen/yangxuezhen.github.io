@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="box">
+        <div class="logo">
+            <div style="padding: 0 40px;height: 110px;">
+                <div style="width: 246px;height: 60px;margin: 5px auto;">
+                    <img src="https://ccdn.goodq.top/caches/569b046fc16663a994ea33d5a2a60b54/aHR0cHM6Ly81NGQ0YTQ2MjlmYjZiLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTUvMDIvYmMzOGYxYzkzOGY5OGM3NjExYzEzMzc2OGJhN2M3OWEucG5n.png"
+                        alt="">
+                </div>
+            </div>
+        </div>
+        <div class="nav">
+            <ul>
+                <li>首页</li>
+                <li>关于我们</li>
+                <li>我们的理念</li>
+                <li>旅行篇</li>
+                <li>艺术篇</li>
+                <li>博客</li>
+            </ul>
+        </div>
+        <div class="banner">
+            <div>
+                <no1 style="width: 100%;margin: 0 auto;" :box_arr="arr"></no1>
+            </div>
+            <div class="hear">
+                <div style="font-size: 40px;color:#000;text-align: center;margin: 80px 0 30px;">
+                    <p>关于我们</p>
+                </div>
+                <div style="font-size:14px; color:#666;text-align: center;width: 90%;margin:50px auto;line-height: 30px;">
+                    <p>
+                        起飞页是一款简单、便捷的工具，可以帮助您制作响应式网站。我们的网站构建器，将传统的编码工作转化为直观的拖拽操作和文字录入。在这里，您仅需花上10分钟便可以完成一个H5响应式网站，您会发现完全不需要编写一行代码，这就是起飞页自助建站的神奇之处。起飞页是一款简单、便捷的工具，可以帮助您制作响应式网站。我们的网站构建器，将传统的编码工作转化为直观的拖拽操作和文字录入。在这里，您仅需花上10分钟便可以完成一个H5响应式网站，您会发现完全不需要编写一行代码，这就是起飞页自助建站的神奇之处。
+                    </p>
+                </div>
+                <div style="width: 161px;height: 38px;margin: 0px auto;">
+                    <img src="https://ccdn.goodq.top/caches/569b046fc16663a994ea33d5a2a60b54/aHR0cHM6Ly81NGQ0YTQ2MjlmYjZiLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTQvMDYvQy5wbmc_p_p100_p_3D.png" alt="">
+                </div>
+            </div>
+            <div style="max-width: 85%;margin: 0 auto;">
+                <no2 v-for='i in arr1' :text_arr='i'></no2>
+            </div>
+        </div>
+    </div>
+    <template id="no1">
+        <div style="position:relative">
+            <transition :name="tran" v-for="(i,$index) in arr">
+                <div style="width: 100%;position: absolute;" v-show="$index==index">
+                    <img :src="i" width="100%" height="542px" ref="img" />
+                </div>
+            </transition>
+            <div class="l" @click="r"> < </div> 
+            <div class="r" @click="l"> > </div>
+        </div>
+    </template>
+    <template id="no2">
+        <div class="max_t" style="width: 33%;margin-bottom: 50px; float: left;">
+            <div style="padding: 5px 5px;width: 80%;margin: 0 auto;">
+                <img :src="json.img">
+            </div>
+            <div>
+                <h4 style="font-size:16px; text-align:center;padding: 15px 0 10px;">
+                    {{json.t1}}
+                </h4>
+            </div>
+            <div>
+                <p style="font-size: 14px;color: #ccc;text-align: center;">
+                    {{json.t2}}
+                </p>
+            </div>
+        </div>
+    </template>
+</body>
+<script src="../js/vue.js"></script>
+<script src="index.js"></script>
+
+</html>
