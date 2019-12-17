@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        父级：{{arr}} <button @click='arr++'>.++</button>
+        <no1 :arr=arr @json='box_btn'></no1 :arr=arr>
+
+    </div>
+    <template id="no1">
+        <div>
+            子集: {{json}}  <button @click='btn'>++</button>  
+        </div>
+    </template>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    Vue.component('no1',{
+        template:'#no1',
+        props:['arr'],
+        data() {
+            return {
+                json:this.arr
+            }
+        },
+        methods: {
+            btn(){
+                this.json++
+                this.$emit('json',this.json)
+            }
+        },
+    })
+
+    new Vue({
+        el:'#box',
+        data:{
+            arr:0,
+        },
+        methods: {
+            box_btn(a){
+                this.arr=a
+            }
+        },
+    })
+
+
+</script>
+</html>

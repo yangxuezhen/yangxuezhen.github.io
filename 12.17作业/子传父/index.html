@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        这是父级：{{box}} <button @click="box++">++</button>
+		<no1 :box="box" @no1="box_btn"></no1>
+    </div>
+    <template id="no1">
+        <div>
+             这是no1：{{no1}}<button @click="btn">++</button><br>
+        </div>
+    </template>
+    
+</body>
+<script src="../js/vue.js"></script>
+<script>
+		Vue.component('no1',{
+			template:"#no1",
+			props:['box'],
+			data(){
+				return{
+					no1:this.box
+				}
+			},
+			methods:{
+			  btn(){
+			  	this.no1++
+			  	this.$emit('no1',this.no1)
+			  }
+			},
+			// watch:{ //监听
+			// 	box(a,b){
+			// 		// this.no1 = a
+			// 	}
+			// }
+		})
+		new Vue({
+			el:"#box",
+			data:{
+				box:0
+			},
+			methods:{
+				box_btn(a){
+					this.box = a
+					console.log(a)
+				}
+			}
+		})
+
+</script>
+</html>   

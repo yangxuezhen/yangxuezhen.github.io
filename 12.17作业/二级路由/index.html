@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>父集向子级传值</title>
+    <style>
+        *{
+            margin: 0;padding: 0;list-style: none;text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div style="height: 70px;background-color: cornsilk;">
+            <a href="#/">首页</a>
+            <a href="#/no2">拓展</a>
+            <a href="#/no3">结尾</a>
+        </div>
+        <div style="min-height: 600px; background-color: darkgray;">
+            {{$route.path}}
+            <router-view></router-view>
+        </div>
+        <div style="height: 130px; background-color: springgreen;"></div>
+    </div>
+    <template id="no1">
+        <div>
+            <no1></no1>
+             {{$route.path}}
+            首页
+        </div>
+    </template>
+    <template id="no2">
+        <div>
+            <div>
+                <a href="#/no2/no2">
+                    拓展
+                </a>
+            </div>
+            <div>
+                <a href="#/no2/no1">
+                    拓展
+                </a>
+            </div>
+            <div>
+                <router-view></router-view>
+            </div>
+        </div>
+    </template>
+    <template id="no3"> 
+        <div>
+            地图
+        </div>
+    </template>
+</body>
+<script src="../js/vue.js"></script>
+<script src="../js/vue-router.js"></script>
+<script src="index.js"></script>
+</html>

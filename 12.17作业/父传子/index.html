@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>子集向父级传值</title>
+</head>
+<body>
+
+	<div id="box">
+		<no1  :max_arr='arr'></no1>
+	</div>
+	<template id="no1">
+		<div>
+			{{json}}
+		</div>
+	</template>
+
+	
+</body>
+<script src="js/vue.js"></script>
+<script type="text/javascript">
+	Vue.component('no1',{
+		template:'#no1',
+		props:['max_arr'],
+		data(){
+			return{
+				json:this.max_arr
+			}
+		}
+
+	})
+
+
+
+new Vue({
+	el:'#box',
+	data:{
+		arr:[{
+			t1:'第一',t2:'第二'
+		}]
+	}
+
+})
+
+</script>
+</html>

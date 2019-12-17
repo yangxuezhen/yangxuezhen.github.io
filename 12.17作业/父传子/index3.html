@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>子集向父级传值</title>
+</head>
+<body>
+	<div id="box">
+		<no1 v-for='i in arr' :all='i'></no1>
+	</div>
+	
+	<template id="no1">
+		<div>
+			<div>姓名{{json.t1}} </div>
+			<div>代号L{{json.t2}} </div>
+		</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.component('no1',{
+		template:'#no1',
+		props:['all'],
+		data() {
+			return {
+				json:this.all
+			}
+		},
+	})
+
+	new Vue({
+		el:'#box',
+		data:{
+			arr:[{t1:'123',t2:'098'}]
+		}
+	})
+</script>
+</html>

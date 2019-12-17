@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        父级：{{box}} <button @click='box++'>++</button>
+        <no1 :box=box @json='box_btn'></no1>
+    </div>
+    <template id="no1">
+        <div>
+            子集： {{json}}  <button @click='btn'>++</button>
+        </div>
+    </template>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    Vue.component('no1',{
+        template:'#no1',
+        props:['box'],
+        data() {
+            return {
+                json:this.box
+            }
+        },
+        methods: {
+            btn(){
+                this.json++
+                this.$emit('json',this.json)
+            }
+        },
+    })
+
+    new Vue({
+        el:'#box',
+        data:{
+            box:0,
+        },
+        methods: {
+            box_btn(a){
+                this.box=a
+            }
+        },
+    })
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;list-style: none;text-decoration: none;
+        }
+    
+        .one a{
+            display: inline-block;
+            width: 190px;
+            height: 50px;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <div class="one" style="width: 600px; height: 50px;margin: 0 auto;">
+            <a href="#/">第一</a>
+            <a href="#/no2">第二</a>
+            <a href="#/no3">第三</a>
+        </div>
+        <div style="min-height: 500px; background-color: darkgray;">
+                {{$route.path}}
+            <router-view></router-view>
+        </div>
+        <div style="height: 140px; background-color: #ccc;"></div>
+    </div>
+
+    <template id="no1">
+        <div>
+            <no1></no1>
+            {{$route.path}}
+            第一步
+        </div>
+    </template>
+    <template id="no2">
+        <div>
+           <div>
+               <a href="#/no2/">继续</a>
+            </div>
+            <div>
+                <a href="#/no2/no1">继续</a>
+            </div>
+            <div>
+                <router-view></router-view>
+            </div>
+        </div>
+    </template>
+    <template id="no3">
+        <div>
+            第三步
+        </div>
+    </template>
+    
+</body>
+<script src="../js/vue.js"></script>
+<script src="../js/vue-router.js"></script>
+<script src="index1.js"></script>
+</html>

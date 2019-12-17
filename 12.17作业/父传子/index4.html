@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>子集向父级传值</title>
+</head>
+<body>
+    <div id="box">
+       <name v-for='i in arr' :all='i'></name >
+
+    </div>
+    
+    <template id="no1">
+        <div>
+            <div>时间:{{json.a1}} </div>
+            <div>坐标:{{json.a2}} </div>
+         </div>
+    </template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('name',{
+        template:'#no1',
+        props:['all'],
+        data() {
+            return {
+                json:this.all
+            }
+        },
+    })
+
+new Vue({
+    el:'#box',
+    data:{
+        arr:[{a1:'123',a2:'123'}]
+    }
+})
+
+</script>
+</html>

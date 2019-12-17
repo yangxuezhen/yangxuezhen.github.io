@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>子集向父级传值</title>
+</head>
+<body>
+
+	<div id="box">
+		<name  v-for='i in arr' :max_arr='i'></name>
+		
+	</div>
+	<template id="no1">
+		<div>
+			<div>
+				姓名：‘{{add.t2}}
+				数字：’{{add.t1}}
+			</div>
+		</div>
+	</template>
+	
+</body>
+<script src="js/vue.js"></script>
+<script type="text/javascript">
+	
+	Vue.component('name',{
+		template:'#no1',
+		props:['max_arr'],
+		data(){
+			return{
+				add:this.max_arr
+			}
+		}
+	})
+
+	new Vue({
+		el:'#box',
+		data:{
+			arr:[{
+				t1:'13',t2:'ab'
+			}]
+		}
+	})
+</script>
+</html>
