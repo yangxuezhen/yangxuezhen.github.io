@@ -44,7 +44,7 @@
         <div>
             <div>
                 <div @mouseenter="out()" @mouseleave="enter_in()">
-                    <li v-for="(item,index) in arr" :key="item" v-show="num==index">
+                    <li v-for="(item,index) in arr"  v-show="num==index">
                         <img :src="item" />
                     </li>
                     <!--左右按钮-->

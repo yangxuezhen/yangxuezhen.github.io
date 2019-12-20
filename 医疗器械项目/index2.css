@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+[v-cloak] {
+    display: none;
+}
+.l{
+    width: 80px;
+    height: 120px;
+    background: rgba(0,0,0,0.1);
+    text-align: center;
+    line-height: 120px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    font-size: 20px;
+    color: #FFFFFF;
+    margin-top: -60px;
+}
+.r{
+    width: 80px;
+    height: 120px;
+    background: rgba(0,0,0,0.1);
+    text-align: center;
+    line-height: 120px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    font-size: 20px;
+    color: #FFFFFF;
+    margin-top: -60px;
+}
+.l-leave{
+    opacity: 1;
+    left: 0;
+}
+.l-leave-active,.l-enter-active{
+    transition: all .3s;
+}
+.l-leave-to{
+    opacity: 0;
+    left: -100%;
+}
+.l-enter{
+    left: 100%;
+    opacity: 0;
+}
+.l-enter-to{
+    left: 0;
+    opacity: 1;
+}
+.r-leave{
+    opacity: 1;
+    left: 0;
+}
+.r-leave-active,.r-enter-active{
+    transition: all .3s;
+}
+.r-leave-to{
+    left: 100%;
+    opacity: 0;
+}
+.r-enter{
+    opacity: 0;
+    left: -100%;
+}
+.r-enter-to{
+    opacity: 1;
+    left: 0;
+}

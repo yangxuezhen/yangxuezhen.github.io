@@ -7,20 +7,26 @@
 <body>
 
 	<div id="box">
-		<name  v-for='i in arr' :max_arr='i'></name>
+		<name  v-for='i in arr2' :max_arr='i'></name>
 		
 	</div>
+
+	
+
+
+
 	<template id="no1">
 		<div>
 			<div>
-				姓名：‘{{add.t2}}
-				数字：’{{add.t1}}
+				姓名：{{add.t2}}
+				数字：{{add.t1}}
 			</div>
 		</div>
+		<div>
 	</template>
 	
 </body>
-<script src="js/vue.js"></script>
+<script src="../js/vue.js"></script>
 <script type="text/javascript">
 	
 	Vue.component('name',{
@@ -36,9 +42,10 @@
 	new Vue({
 		el:'#box',
 		data:{
-			arr:[{
-				t1:'13',t2:'ab'
-			}]
+			arr2:[{
+				t1:'45',t2:'ab'
+			}],
+			
 		}
 	})
 </script>

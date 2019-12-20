@@ -7,7 +7,7 @@
 <body>
 
 	<div id="box">
-		<no1  :max_arr='arr'></no1>
+		<no1  :max_arr='arr2'></no1>
 	</div>
 	<template id="no1">
 		<div>
@@ -17,7 +17,7 @@
 
 	
 </body>
-<script src="js/vue.js"></script>
+<script src="../js/vue.js"></script>
 <script type="text/javascript">
 	Vue.component('no1',{
 		template:'#no1',
@@ -37,7 +37,10 @@ new Vue({
 	data:{
 		arr:[{
 			t1:'第一',t2:'第二'
-		}]
+		}],
+		arr2:[{
+				t1:'45',t2:'ab'
+			}]
 	}
 
 })

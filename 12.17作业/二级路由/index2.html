@@ -1,87 +1,70 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-		<div id="box">
-			 这是父级：{{box}} <button @click="box++">++</button>
-			  <no1 :box="box" @no1="box_btn"></no1>
-			  <no2 :box="box" ></no2>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;list-style: none;text-decoration: none;}
+		.ona a {
+			display: inline-block;
+			width: 190px;
+			height: 50px;
+			line-height: 50px;
+		}
+		.head{
+			height: 50px;
+			line-height: 50px;
+			
+		}
+		.content{
+			min-height: 400px;
+			background-color: coral;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+
+		<div class="head">
+			<a href="#/">综合</a>
+			<a href="#/no2">目录</a>
+			<a href="#/no3">联系</a>
 		</div>
-		<template id="no1">
+		<div class="content">
+			<router-view></router-view>
+		</div>
+		<div class="foot">
+
+		</div>
+	</div>
+	<template id="no1">
+		<div>
+			<no1></no1>
+			第一步
+		</div>
+	</template>
+	<template id="no2">
+		<div>
 			<div>
-				这是no1：{{no1}}<button @click="btn">++</button><br>
+				<a href="#/no2/">深入一</a>
 			</div>
-		</template>
-		<template id="no2">
 			<div>
-				这是no2：{{no2}}<button @click="btn">++</button><br>
+				<a href="#/no2/no1">深入二</a>
 			</div>
-		</template>
-	</body>
-	<script src="vue.js"></script>
-	<script>
-		var bus = new Vue()
-		Vue.component('no1',{
-			template:"#no1",
-			props:['box'],
-			data(){
-				return{
-					no1:this.box
-				}
-			},
-			mounted(){
-				bus.$on('no2',(a)=>{
-					
-					this.no1=a
-						this.$emit('no1',this.no1)
-				})
-			},
-			methods:{
-			  btn(){
-			  	this.no1++
-			  	this.$emit('no1',this.no1)
-			  }
-			},
-			watch:{
-				box(a,b){
-					this.no1 = a
-				}
-			}
-		})
-		Vue.component('no2',{
-			template:"#no2",
-			props:['box'],
-			data(){
-				return{
-					no2:this.box
-				}
-			},
-			methods:{
-			   btn(){
-			   	this.no2++
-			   	  bus.$emit('no2',this.no2)
-			   }
-			},
-			watch:{
-				box(a,b){
-					this.no2 = a
-				}
-			}
-		})
-		new Vue({
-			el:"#box",
-			data:{
-				box:0
-			},
-			methods:{
-				box_btn(a){
-					this.box = a
-					console.log(a)
-				}
-			}
-		})
-	</script>
+			<div>
+				<router-view></router-view>
+			</div>
+		</div>
+	</template>
+	<template id="no3">
+		<div>
+			第三步
+		</div>
+	</template>
+</body>
+<script src="../js/vue.js"></script>
+<script src="../js/vue-router.js"></script>
+<script src="index2.js"></script>
 </html>

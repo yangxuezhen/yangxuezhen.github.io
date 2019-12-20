@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index2.css">
+    <link rel="stylesheet" href="a.css">
+</head>
+
+<body>
+    <div id="box" v-cloak=''>
+        <!-- 头部 -->
+        <div class="fw">
+            <hear_text></hear_text>
+        </div>
+        <!-- 内容 -->
+        <div style="min-height:600px;">
+            <router-view></router-view>
+        </div>
+        <!-- 尾部 -->
+        <div style="height: 150px; background: #fff;">
+            <foot_text></foot_text>
+        </div>
+    </div>
+    <!-- 主页面 -->
+    <template id="index">
+        <index></index>
+    </template>
+    <!-- 轮播图 -->
+    <template id="no1"></template>
+    <!-- 数据一 -->
+    <template id="int"></template>
+    <!-- 产品系列 -->
+    <template id="int2"> </template>
+    <!-- 产品系列2 -->
+    <template id="three"></template>
+    <!-- 产品导航组件 -->
+    <template id="two"></template>
+    <!--产品系列导航  -->
+    <template id="list">
+        <list></list>
+    </template>
+    <!-- 产品系列数据 -->
+    <template id="lists">
+        <div>
+            <two_text></two_text>
+        </div>
+    </template>
+
+    <!-- 新闻中心导航 -->
+    <template id="git">
+        <nav_git></nav_git>
+    </template>
+    <!-- 新闻中心数据 -->
+    <template id="gits">
+        <div >
+            <git></git>
+        </div>
+    </template>
+    <template id="g_te"></template>
+
+    <!-- 加入我们 -->
+    <template id="index2">
+        <index2></index2>
+        
+    </template>
+<!-- 联系我们 -->
+    <template id="index3">
+        <index3></index3>
+    </template>
+
+    <script src="vue.js"></script>
+    <script src="vue-router.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
