@@ -426,8 +426,8 @@ Vue.component('two_text', {
 
 })
 // 新闻中心导航
-Vue.component('nav_git',{
-	template:`
+Vue.component('nav_git', {
+	template: `
 	<div style="min-width: 1200px;width: 80%; margin: 0 auto;">
             <div class="git_tet">
                 <li>
@@ -638,8 +638,8 @@ Vue.component('index2', {
 
 })
 //底部模板
-Vue.component('index3',{
-	template:`
+Vue.component('index3', {
+	template: `
 	<div style="padding: 0 40px;min-width: 1280px; width:80%;margin: 50px auto;">
            <div class="int_left">
                 <div class="int_p" >
@@ -669,9 +669,28 @@ Vue.component('index3',{
                 </div>
            </div>
            <div class="int_right">
-
+		   		<ditu></ditu>
            </div>
-        </div>`
+		</div>`
+})
+//地图模板
+Vue.component('ditu',{
+	template:`
+	<div>
+		<div style="margin: 20px auto;">
+			<div id="allmap" style="height: 500px; margin: 0 auto;"></div>
+		</div>
+	</div>`,
+	props:['#ditu'],
+	mounted() {
+		var map = new BMap.Map("allmap");
+		// var point = new BMap.Point(116.331398, 39.897445);北京的经纬度
+		map.addControl(new BMap.NavigationControl());
+		map.addControl(new BMap.ScaleControl());
+		map.addControl(new BMap.OverviewMapControl());
+		map.addControl(new BMap.MapTypeControl());
+		map.centerAndZoom("苏州市外河桥", 11);
+	},
 })
 new Vue({
 	el: '#box',
